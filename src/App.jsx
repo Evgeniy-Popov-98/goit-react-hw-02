@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import { useState } from "react";
 import "./App.css";
 
 import Description from "./assets/components/Description/Description";
@@ -20,13 +19,7 @@ function App() {
     return parsedReviews;
   });
 
-  const [isVisibleReview, setIsVisibleReview] = useState(false);
-
   const updateFeedback = (feedbackType) => {
-    // if (drinks[drinkName] === 2 && drinkName === "beer") {
-    //   alert("Sorry, you excedded the beer limit. Please choose another drink!");
-    //   return;
-    // }
     setReviews({ ...reviews, [feedbackType]: reviews[feedbackType] + 1 });
   };
 
@@ -35,6 +28,14 @@ function App() {
     0
   );
 
+  const totalPercentageFeedback = Math.round(
+    ((reviews.good + reviews.neutral) / totalFeedback) * 100
+  );
+
+  const resetFeedback = () => {
+    setReviews(reviewsObject);
+  };
+
   useEffect(() => {
     localStorage.setItem("reviewsValues", JSON.stringify(reviews));
   }, [reviews]);
@@ -42,8 +43,20 @@ function App() {
   return (
     <>
       <Description />
-      <Options updateFeedback={updateFeedback} />
-      {totalFeedback ? <Feedback reviews={reviews} /> : <Notification />}
+      <Options
+        updateFeedback={updateFeedback}
+        resetFeedback={resetFeedback}
+        totalFeedback={totalFeedback}
+      />
+      {totalFeedback ? (
+        <Feedback
+          reviews={reviews}
+          totalFeedback={totalFeedback}
+          totalPercentageFeedback={totalPercentageFeedback}
+        />
+      ) : (
+        <Notification />
+      )}
     </>
   );
 }

@@ -1,0 +1,17 @@
+.containerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(51, 66, 66, 0.884);
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.25;
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.reviewsList {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reviewsItem {
+  list-style: none;
+  line-height: 1.25;
+}
