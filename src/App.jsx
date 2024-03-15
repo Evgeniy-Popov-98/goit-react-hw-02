@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-import Description from "./assets/components/Description/Description";
-import Options from "./assets/components/Options/Options";
-import Feedback from "./assets/components/Feedback/Feedback";
-import Notification from "./assets/components/Notification/Notification";
+import Description from "./components/Description/Description";
+import Options from "./components/Options/Options";
+import Feedback from "./components/Feedback/Feedback";
+import Notification from "./components/Notification/Notification";
 
 const reviewsObject = {
   good: 0,
